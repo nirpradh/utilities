@@ -1,0 +1,33 @@
+# ~/.gitconfig
+
+[user]
+        email = <email-id>
+        name = Niranjan Pradhan
+[push]
+        default = simple
+[alias]
+        superclean = "!f(){ git clean -xffd && git checkout .;};f"
+        pwd = !pwd
+        log-pretty = log --pretty=format:\"%C(yellow)%h%Creset %ad %cd | %Cblue[%<(20)%an] %Cgreen%s%Creset %Cred%d%Creset\" --date=short
+        log-csv = log --pretty=format:\"%h|%ad|%cd|%an|%s|%d\" --date=short
+[filter "lfs"]
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
+[lfs]
+        credentials = enabled
+        dialtimeout = 60
+        tlstimeout = 60
+        activitytimeout = 900
+        concurrenttransfers = 8
+[color]
+        ui = auto
+[core]
+        editor = vim
+[diff]
+        tool = vimdiff
+[difftool]
+        prompt = false
+[difftool "vimdiff"]
+        cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
